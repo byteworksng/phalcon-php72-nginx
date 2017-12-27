@@ -1,15 +1,15 @@
-NAME = chibuzor/phalcon-php72-nginx
+NAME = byteworks/phalcon-php72-nginx
 TAG = ubuntu-16.04
 SHELL = /bin/bash
 PHP_VERSION= 7.2
 ARTIFACTS_IMAGE = klay/mkimage:$(TAG)-php-$(PHP_VERSION)
 
-.PHONY: pre-build docker-build post-build clean build release push do-push post-push
+.PHONY: docker-build post-build clean build release push do-push post-push
 
 build:  docker-build post-build
 
-pre-build:
-	tar -cvf installers.tar installers
+# pre-build:
+#	tar -cvf installers.tar installers
 
 post-build: clean
 
