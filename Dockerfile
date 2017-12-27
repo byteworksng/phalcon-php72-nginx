@@ -24,7 +24,7 @@ RUN ls -al artifacts
 RUN mkdir -p $APPLICATION_PATH/public \
     && chown -R $APPLICATION_USER:$APPLICATION_GROUP $APPLICATION_PATH \
     && curl -s https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh | bash \
-    && apt-get install software-properties-common -y \
+    && apt-get install -y software-properties-common snmp snmp-mibs-downloader \
     && LANG=C.UTF-8 apt-add-repository -y ppa:ondrej/php \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && apt-get update -y

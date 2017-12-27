@@ -50,3 +50,13 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /.idea/vcs.xml
+/.idea/
+application/.phalcon/migration-version
+
+composer.lock
+variables.env
+
+.bundle
+
+vendor
+/artifacts/
