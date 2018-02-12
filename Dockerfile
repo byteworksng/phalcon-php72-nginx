@@ -15,7 +15,6 @@ COPY conf/ /opt/docker
 ENV PATH=/root/composer/vendor/bin:$PATH \
     COMPOSER_HOME=/root/composer \
     COMPOSER_ALLOW_SUPERUSER=1 \
-    COMPOSER_HOME=/root/composer \
     APPLICATION_PATH="/project" \
     APPLICATION_USER="www-data" \
     APPLICATION_GROUP="www-data" \
