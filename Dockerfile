@@ -47,8 +47,14 @@ RUN echo "deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx" | tee -a 
     && apt-get install -y nginx
 
 RUN apt-get update -y  \
-	&& apt install -y -f nodejs npm \
+#	&& apt install -y -f nodejs npm \
 	&& apt install -y git
+
+# Deploy node
+RUN apt-get purge -y nodejs npm \
+    && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+    && apt-get install -y nodejs
+
 
 RUN apt-get -o Dpkg::Options::="--force-confnew" install -y -f --no-install-recommends \
         php7.2 \
@@ -117,6 +123,7 @@ RUN wget https://phar.io/releases/phive.phar \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && chmod +x /usr/local/bin/composer
 RUN pear config-set preferred_state beta \
+	&& apt-get install -y --reinstall build-essential \
 	&& pecl install xdebug
 RUN cp -R /artifacts/etc/php/7.2/mods-available /etc/php/7.2/mods-available \
     && cp -R /artifacts/usr/lib/php/`php-config --phpapi` /usr/lib/php/`php-config --phpapi` \
