@@ -47,13 +47,13 @@ RUN echo "deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx" | tee -a 
     && apt-get install -y nginx
 
 RUN apt-get update -y  \
-#	&& apt install -y -f nodejs npm \
 	&& apt install -y git
 
 # Deploy node
 RUN apt-get purge -y nodejs npm \
-    && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-    && apt-get install -y nodejs
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install npm --global
 
 
 RUN apt-get -o Dpkg::Options::="--force-confnew" install -y -f --no-install-recommends \
