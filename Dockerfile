@@ -44,7 +44,7 @@ RUN echo "deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx" | tee -a 
     && echo "deb-src http://nginx.org/packages/mainline/ubuntu/ xenial nginx" | tee -a /etc/apt/sources.list \
     && wget -qO - https://nginx.org/keys/nginx_signing.key | apt-key add - \
     && apt-get update -y \
-    && apt-get install -y nginx
+    && apt-get install -y nginx nano
 
 RUN apt-get update -y  \
 	&& apt install -y git
@@ -93,6 +93,7 @@ RUN apt-get -o Dpkg::Options::="--force-confnew" install -y -f --no-install-reco
         php-ssh2 \
         php7.2-tidy \
         php7.2-fpm \
+        php7.2-phalcon \
         php-yaml \
         lsb-release \
         libssh2-1-dev \
